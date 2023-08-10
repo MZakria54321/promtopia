@@ -3,8 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
+import { Router } from "next/navigation";
 
 const Nav = () => {
+  const router = Router();
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false);
@@ -103,6 +105,7 @@ const Nav = () => {
                   onClick={() => {
                     setToggleDropDown(false);
                     signOut();
+                    router.push("/");
                   }}
                 >
                   Sign Out
