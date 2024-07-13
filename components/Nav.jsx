@@ -3,10 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { useSession, signIn, signOut, getProviders } from "next-auth/react";
-import { Router } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
-  const router = Router();
+  const router = useRouter();
   const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false);
